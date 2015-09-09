@@ -17,7 +17,7 @@ defmodule Plywood.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Plywood, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :facebook,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -34,6 +34,7 @@ defmodule Plywood.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:facebook,"0.4.0",[github: "mweibel/facebook.ex"]},
      {:cowboy, "~> 1.0"}]
   end
 end

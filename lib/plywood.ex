@@ -6,6 +6,8 @@ defmodule Plywood do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    initializers();
+
     children = [
       # Start the endpoint when the application starts
       supervisor(Plywood.Endpoint, []),
@@ -26,5 +28,13 @@ defmodule Plywood do
   def config_change(changed, _new, removed) do
     Plywood.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  def initializers() do
+    facebook_secret = Application.get_env :plywood, :facebook_secret
+    Facebook.Config.appsecret facebook_secret
+
+    facebook_graph_url = Application.get_env :plywood, :facebook_graph_url
+    Facebook.Config.graph_url facebook_graph_url
   end
 end

@@ -40,3 +40,6 @@ config :plywood, Plywood.Repo,
   database: "plywood_dev",
   hostname: "localhost",
   pool_size: 10
+
+# import the secrets file
+import_config "dev.secret.exs"

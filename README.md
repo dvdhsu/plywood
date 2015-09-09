@@ -10,6 +10,13 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+## TODO
+
+0. login
+1. stronger checks in `login_or_create`
+
+* validation of uniqueness of tokens?
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/

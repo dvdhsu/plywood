@@ -19,8 +19,12 @@ defmodule Plywood.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Plywood do
-  #   pipe_through :api
-  # end
+  scope "/api", Plywood do
+    pipe_through :api
+    scope "/auth" do
+      post "/login", AuthenticationController, :login_or_create
+      post "/logout", AuthenticationController, :logout
+    end
+    resources "/users", UserController, except: [:new, :edit]
+  end
 end
