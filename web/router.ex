@@ -10,6 +10,7 @@ defmodule Plywood.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, [origin: "http://localhost:10555"]
     plug :accepts, ["json"]
   end
 
