@@ -26,6 +26,19 @@ defmodule Plywood.User do
     |> unique_constraint(:email)
   end
 
+  def add_token(model) do
+    auth_tokens = model.auth_tokens
+    if (length auth_tokens) > 50 do
+      auth_tokens = tl auth_tokens
+    end
+    new_auth_token = new_token
+    auth_tokens = auth_tokens ++ [new_auth_token];
+    user_params = %{ auth_tokens: auth_tokens }
+
+    %{changeset: changeset(model, user_params),
+      new_auth_token: new_auth_token}
+  end
+
   def new_token do
     :crypto.strong_rand_bytes(64) |> Base.encode16(case: :lower)
   end

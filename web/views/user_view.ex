@@ -9,11 +9,15 @@ defmodule Plywood.UserView do
     %{data: render_one(user, Plywood.UserView, "user.json")}
   end
 
+  def render("user_auth.json", %{user: user, auth_token: auth_token}) do
+    %{data: (render_one(user, Plywood.UserView, "user.json")
+             |> Dict.put("auth_token", auth_token))}
+  end
+
   def render("user.json", %{user: user}) do
     %{id: user.id,
       email: user.email,
       facebook_id: user.facebook_id,
-      facebook_token: user.facebook_token,
-      auth_tokens: user.auth_tokens}
+      facebook_token: user.facebook_token}
   end
 end
