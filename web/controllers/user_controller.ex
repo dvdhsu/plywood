@@ -10,31 +10,6 @@ defmodule Plywood.UserController do
     render(conn, "index.json", users: users)
   end
 
-  def create(conn, %{"user" => user_params}) do
-    changeset = User.changeset(%User{}, user_params)
-
-    case Repo.insert(changeset) do
-      {:ok, user} ->
-        show_with_new_token(conn, user)
-      {:error, changeset} ->
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(Plywood.ChangesetView, "error.json", changeset: changeset)
-    end
-  end
-
-  def show_with_new_token(conn, user) do
-    %{:changeset => changeset, :new_auth_token => new_auth_token} = User.add_token(user)
-    case Repo.update(changeset) do
-      {:ok, user} ->
-        render conn, Plywood.UserView, "user_auth.json", %{user: user, auth_token: new_auth_token}
-      {:error, changeset} ->
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(Plywood.ChangesetView, "error.json", changeset: changeset)
-    end
-  end
-
   def show(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
     render conn, "show.json", user: user
