@@ -2,7 +2,7 @@ defmodule Plywood.UserControllerTest do
   use Plywood.ConnCase
 
   alias Plywood.User
-  @valid_attrs %{auth_tokens: [], email: "some content", facebook_id: "some content", facebook_token: "some content"}
+  @valid_attrs %{auth_tokens: [], email: "some@email.com", facebook_id: "some content", facebook_token: "some content"}
   @invalid_attrs %{}
 
   setup do
@@ -20,26 +20,13 @@ defmodule Plywood.UserControllerTest do
     conn = get conn, user_path(conn, :show, user)
     assert json_response(conn, 200)["data"] == %{"id" => user.id,
       "email" => user.email,
-      "facebook_id" => user.facebook_id,
-      "facebook_token" => user.facebook_token,
-      "auth_tokens" => user.auth_tokens}
+      "facebook_id" => user.facebook_id}
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     assert_raise Ecto.NoResultsError, fn ->
       get conn, user_path(conn, :show, -1)
     end
-  end
-
-  test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, user_path(conn, :create), user: @valid_attrs
-    assert json_response(conn, 201)["data"]["id"]
-    assert Repo.get_by(User, @valid_attrs)
-  end
-
-  test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, user_path(conn, :create), user: @invalid_attrs
-    assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do

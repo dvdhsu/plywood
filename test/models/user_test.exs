@@ -3,7 +3,7 @@ defmodule Plywood.UserTest do
 
   alias Plywood.User
 
-  @valid_attrs %{auth_tokens: [], email: "some content", facebook_id: "some content", facebook_token: "some content"}
+  @valid_attrs %{auth_tokens: [], email: "some@email.com", facebook_id: "some content", facebook_token: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
