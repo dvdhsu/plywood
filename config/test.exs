@@ -20,3 +20,6 @@ config :plywood, Plywood.Repo,
   database: "plywood_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# import the secrets file
+import_config "test.secret.exs"
