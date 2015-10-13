@@ -19,7 +19,7 @@ defmodule Plywood.AuthenticationController do
             create_user(conn, user_params)
           user ->
             auth_tokens = [User.new_token | user.auth_tokens]
-            user = %{ user | auth_tokens: auth_tokens, facebook_token: facebook_token }
+            user = User.changeset(user, %{ auth_tokens: auth_tokens, facebook_token: facebook_token })
 
             case Repo.update user do
               {:ok, user} ->
