@@ -7,7 +7,9 @@ defmodule Plywood.AuthenticationController do
   def login_or_create(conn, %{ "facebook_token" => facebook_token }) do
     case Facebook.me("email,name", facebook_token) do
       {_, %{ "error" => error }} ->
-        json(conn, %{error: error})
+        conn
+          |> put_status(:unauthorized)
+          |> json(%{error: error})
       { _, facebook_user } ->
         case Repo.get_by(User, facebook_id: facebook_user["id"]) do
           nil ->
