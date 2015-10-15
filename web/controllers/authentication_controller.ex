@@ -1,8 +1,8 @@
-defmodule Plywood.AuthenticationController do
-  use Plywood.Web, :controller
+defmodule Melamine.AuthenticationController do
+  use Melamine.Web, :controller
 
-  alias Plywood.Authentication
-  alias Plywood.User
+  alias Melamine.Authentication
+  alias Melamine.User
 
   def login_or_create(conn, %{ "facebook_token" => facebook_token }) do
     case Facebook.me("email,name", facebook_token) do
@@ -26,11 +26,11 @@ defmodule Plywood.AuthenticationController do
             case Repo.update user do
               {:ok, user} ->
                 conn
-                |> render(Plywood.UserView, "user_with_token.json", %{user: user, auth_token: hd auth_tokens})
+                |> render(Melamine.UserView, "user_with_token.json", %{user: user, auth_token: hd auth_tokens})
               {:error, changeset} ->
                 conn
                 |> put_status(:unprocessable_entity)
-                |> render(Plywood.ChangesetView, "error.json", changeset: changeset)
+                |> render(Melamine.ChangesetView, "error.json", changeset: changeset)
             end
         end
     end
@@ -48,11 +48,11 @@ defmodule Plywood.AuthenticationController do
       {:ok, user} ->
         conn
           |> put_status(:created)
-          |> render(Plywood.UserView, "user_with_token.json", %{user: user, auth_token: auth_token})
+          |> render(Melamine.UserView, "user_with_token.json", %{user: user, auth_token: auth_token})
       {:error, changeset} ->
         conn
           |> put_status(:unprocessable_entity)
-          |> render(Plywood.ChangesetView, "error.json", changeset: changeset)
+          |> render(Melamine.ChangesetView, "error.json", changeset: changeset)
     end
   end
 end

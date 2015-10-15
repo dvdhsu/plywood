@@ -1,7 +1,7 @@
-defmodule Plywood.UserTest do
-  use Plywood.ModelCase
+defmodule Melamine.UserTest do
+  use Melamine.ModelCase
 
-  alias Plywood.User
+  alias Melamine.User
 
   @valid_attrs %{auth_tokens: [], email: "some@email.com", facebook_id: "some content", facebook_token: "some content"}
   @invalid_attrs %{}

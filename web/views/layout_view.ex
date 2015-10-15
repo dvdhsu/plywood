@@ -1,3 +1,3 @@
-defmodule Plywood.LayoutView do
-  use Plywood.Web, :view
+defmodule Melamine.LayoutView do
+  use Melamine.Web, :view
 end

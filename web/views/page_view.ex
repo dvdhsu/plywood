@@ -1,3 +1,3 @@
-defmodule Plywood.PageView do
-  use Plywood.Web, :view
+defmodule Melamine.PageView do
+  use Melamine.Web, :view
 end

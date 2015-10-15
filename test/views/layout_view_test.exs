@@ -1,3 +1,3 @@
-defmodule Plywood.LayoutViewTest do
-  use Plywood.ConnCase, async: true
+defmodule Melamine.LayoutViewTest do
+  use Melamine.ConnCase, async: true
 end

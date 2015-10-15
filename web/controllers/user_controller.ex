@@ -1,7 +1,7 @@
-defmodule Plywood.UserController do
-  use Plywood.Web, :controller
+defmodule Melamine.UserController do
+  use Melamine.Web, :controller
 
-  alias Plywood.User
+  alias Melamine.User
 
   plug :scrub_params, "user" when action in [:create, :update]
 
@@ -25,7 +25,7 @@ defmodule Plywood.UserController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Plywood.ChangesetView, "error.json", changeset: changeset)
+        |> render(Melamine.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

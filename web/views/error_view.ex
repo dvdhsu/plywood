@@ -1,5 +1,5 @@
-defmodule Plywood.ErrorView do
-  use Plywood.Web, :view
+defmodule Melamine.ErrorView do
+  use Melamine.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

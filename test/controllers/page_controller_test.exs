@@ -1,5 +1,5 @@
-defmodule Plywood.PageControllerTest do
-  use Plywood.ConnCase
+defmodule Melamine.PageControllerTest do
+  use Melamine.ConnCase
 
   test "GET /" do
     conn = get conn(), "/"

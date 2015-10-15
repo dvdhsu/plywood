@@ -1,4 +1,4 @@
-defmodule Plywood.ConnCase do
+defmodule Melamine.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,20 +20,20 @@ defmodule Plywood.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Plywood.Repo
+      alias Melamine.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
-      import Plywood.Router.Helpers
+      import Melamine.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Plywood.Endpoint
+      @endpoint Melamine.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Plywood.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(Melamine.Repo, [])
     end
 
     :ok

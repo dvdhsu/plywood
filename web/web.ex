@@ -1,12 +1,12 @@
-defmodule Plywood.Web do
+defmodule Melamine.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Plywood.Web, :controller
-      use Plywood.Web, :view
+      use Melamine.Web, :controller
+      use Melamine.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -27,11 +27,11 @@ defmodule Plywood.Web do
     quote do
       use Phoenix.Controller
 
-      alias Plywood.Repo
+      alias Melamine.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
-      import Plywood.Router.Helpers
+      import Melamine.Router.Helpers
     end
   end
 
@@ -45,7 +45,7 @@ defmodule Plywood.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Plywood.Router.Helpers
+      import Melamine.Router.Helpers
     end
   end
 
@@ -59,7 +59,7 @@ defmodule Plywood.Web do
     quote do
       use Phoenix.Channel
 
-      alias Plywood.Repo
+      alias Melamine.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 

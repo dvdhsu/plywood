@@ -1,5 +1,5 @@
-defmodule Plywood.ChangesetView do
-  use Plywood.Web, :view
+defmodule Melamine.ChangesetView do
+  use Melamine.Web, :view
 
   def render("error.json", %{changeset: changeset}) do
     # When encoded, the changeset returns its errors

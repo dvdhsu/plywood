@@ -1,7 +1,7 @@
-defmodule Plywood.UserControllerTest do
-  use Plywood.ConnCase
+defmodule Melamine.UserControllerTest do
+  use Melamine.ConnCase
 
-  alias Plywood.User
+  alias Melamine.User
   @valid_attrs %{auth_tokens: [], email: "some@email.com", facebook_id: "some content", facebook_token: "some content"}
   @invalid_attrs %{}
 

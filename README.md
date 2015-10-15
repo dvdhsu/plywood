@@ -1,4 +1,4 @@
-# Plywood
+# Melamine
 
 To start your Phoenix app:
 

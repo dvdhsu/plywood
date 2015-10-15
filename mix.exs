@@ -1,8 +1,8 @@
-defmodule Plywood.Mixfile do
+defmodule Melamine.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :plywood,
+    [app: :melamine,
      version: "0.0.1",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -16,7 +16,7 @@ defmodule Plywood.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [mod: {Plywood, []},
+    [mod: {Melamine, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :facebook,
                     :phoenix_ecto, :postgrex]]
   end

@@ -1,5 +1,5 @@
-defmodule Plywood.User do
-  use Plywood.Web, :model
+defmodule Melamine.User do
+  use Melamine.Web, :model
 
   schema "users" do
     field :email, :string

@@ -1,5 +1,5 @@
-defmodule Plywood.Router do
-  use Plywood.Web, :router
+defmodule Melamine.Router do
+  use Melamine.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,13 +14,13 @@ defmodule Plywood.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Plywood do
+  scope "/", Melamine do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
-  scope "/api", Plywood do
+  scope "/api", Melamine do
     pipe_through :api
     scope "/auth" do
       post "/login", AuthenticationController, :login_or_create

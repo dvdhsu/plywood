@@ -1,4 +1,4 @@
-defmodule Plywood.ModelCase do
+defmodule Melamine.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -16,16 +16,16 @@ defmodule Plywood.ModelCase do
 
   using do
     quote do
-      alias Plywood.Repo
+      alias Melamine.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
-      import Plywood.ModelCase
+      import Melamine.ModelCase
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Plywood.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(Melamine.Repo, [])
     end
 
     :ok
