@@ -6,8 +6,8 @@ defmodule Plywood.AuthenticationControllerTest do
   setup do
     conn = conn() |> put_req_header("accept", "application/json")
     facebook_user = %{
-      token: "CAAK56gVae7wBAJWibxdnihHkvIdR713HPb8MMpWaI7ZCRSWb45bmyhLK2nTJxVFlZAguR9gIDTzPLhmXLDvtKC8ZCjejDCRrn0ZBi1becSLq97SxR1fQpj6FZAyXwMaeUHYhl5NEpVRi8kaoKPyZAHZCHlUKSosMHp2xJeULMxZCDK1ZAXts45GpwOO1Lke1iPvl8mZCLeHKlBYLL4lWVWOZBeP",
-      email: "hhacqxl_lausen_1444688968@tfbnw.net"
+      token: Application.get_env(:plywood, :facebook_test_token),
+      email: Application.get_env(:plywood, :facebook_test_email),
     }
     conn = post conn, "/api/auth/login", %{ facebook_token: facebook_user[:token] }
     {:ok, conn: conn, facebook_user: facebook_user}
