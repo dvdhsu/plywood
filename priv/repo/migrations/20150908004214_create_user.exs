@@ -7,6 +7,7 @@ defmodule Melamine.Repo.Migrations.CreateUser do
       add :facebook_id, :string
       add :facebook_token, :string
       add :auth_tokens, {:array, :string}
+      add :last_location, :geometry
 
       timestamps
     end

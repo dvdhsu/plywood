@@ -6,12 +6,13 @@ defmodule Melamine.User do
     field :facebook_id, :string
     field :facebook_token, :string
     field :auth_tokens, {:array, :string}
+    field :last_location, Geo.Point
 
     timestamps
   end
 
   @required_fields ~w(email facebook_id facebook_token auth_tokens)
-  @optional_fields ~w()
+  @optional_fields ~w(last_location)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

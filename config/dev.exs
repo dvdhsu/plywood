@@ -39,7 +39,8 @@ config :melamine, Melamine.Repo,
   password: "postgres",
   database: "melamine_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 10,
+  extensions: [{Geo.PostGIS.Extension, library: Geo}]
 
 # import the secrets file
 import_config "dev.secret.exs"
