@@ -33,6 +33,7 @@ defmodule Melamine.Mixfile do
      {:phoenix_ecto, "~> 1.1"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
+     {:geo, "~> 0.16.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:facebook,"0.4.0",[github: "mweibel/facebook.ex"]},
      {:cowboy, "~> 1.0"},
