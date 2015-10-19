@@ -4,8 +4,8 @@ defmodule Melamine.Repo.Migrations.CreateUser do
   def change do
     create table(:users) do
       add :email, :string
-      add :facebook_id, :string
-      add :facebook_token, :string
+      add :facebook_id, :text
+      add :facebook_token, :text
       add :auth_tokens, {:array, :string}
       add :last_location, :geometry
 
